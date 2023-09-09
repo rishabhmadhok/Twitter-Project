@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <h1>Welcome To The Home Page</h1>
+</head>
+
+<body>
+    <form action ="posttweet" method ="post">
+        {% csrf_token %} 
+        <textarea name = "tweet_text" id="tweet_text" cols = "30" rows= "10"></textarea>
+        <p><button type = "submit">Post Tweet</button>
+    </form>
+
+    <br>{% include 'twitter/showtweets.html' %}</br>
+
+    <br><form method="post" action="{% url 'my_logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    </br>
+
+    <br><form action ="searchhashtags" method ="get">
+        <input type="text" name="hashtag_text">
+        <p><button type = "submit">Search Hashtags</button>
+    </form>
+    </br>
+
+
+    
+
+</body>
+
+</html>

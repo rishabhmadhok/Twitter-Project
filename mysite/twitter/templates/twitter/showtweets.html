@@ -1,0 +1,15 @@
+<html>
+{% if tweets %}
+    {% for tweet in tweets %}
+        <h3><p>{{tweet.tweet_text}} <a href="{% url 'profilepage' tweet.author.username %}"><small>{{tweet.author.username}}</small></a></p></h3>
+        {% if request.user in tweet.likers.all %}
+            <a href="{% url 'unlike' tweet.id %}">Unlike</a> 
+    
+        {% else %}
+            <a href="{% url 'like' tweet.id %}">Like</a> 
+        {% endif %}
+
+    {% endfor %}
+{% endif %}
+
+</html>
